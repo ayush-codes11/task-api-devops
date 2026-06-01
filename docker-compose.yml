@@ -1,0 +1,18 @@
+services:
+  api:
+    build: .
+    container_name: task-api-container
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    container_name: task-db
+    environment:
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: taskdb
+    ports:
+      - "5432:5432"
