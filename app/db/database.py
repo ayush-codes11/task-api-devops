@@ -1,7 +1,10 @@
+import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = (
+DATABASE_URL = os.getenv(
+    "DATABASE_URL",
     "postgresql://devuser:devpassword@db:5432/taskdb"
 )
 
